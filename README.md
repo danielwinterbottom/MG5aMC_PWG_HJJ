@@ -98,7 +98,7 @@ Use these settings to reduce the number of negative weights to ~10%
               foldy     5    ! number of folds on  y  integration
               foldphi   2    ! number of folds on phi integration
 
-To ensure the integration grid etc is accurate enough the following parameters are used with the instructions below. Since these are run as parallel jobs you would need to adjust these parameters if you use a different number of jobs:
+To ensure the integration grid etc is accurate enough the following parameters are used with the instructions below. Since these are run as parallel jobs you would need to adjust these parameters if you use a different number of jobs. These were chosen based off the recomendations in https://twiki.cern.ch/twiki/bin/viewauth/CMS/PowhegBOXPrecompiled :
 
               ncall1  2500  ! number of calls for initializing the integration grid
               itmx1    1     ! number of iterations for initializing the integration grid
@@ -106,11 +106,11 @@ To ensure the integration grid etc is accurate enough the following parameters a
               itmx2     5    ! number of iterations for computing the integral and finding upper bound
               nubound 5000  ! number of bbarra calls to setup norm of upper bounding function
 
-If you use a different jobs for stage 1 (-p 1 in batch_sub.py script) or you use a different number of submissions with option -x (different from 5) you need to change ncall1 - the total number of calls should remain the same
+If you use a different jobs for stage 1 (-p 1 in batch_sub.py script) or you use a different number of submissions with option -x (different from 5) you need to change ncall1 - the total number of calls should remain the same. The total number of calls used = ncall1*(number of -x itterations)*(number of jobs) 2500*5*400 = 5000000
 
-If you use a different number of jobs for stage 2 (-p 2) then change ncall2 so the total number of calls is the same 
+If you use a different number of jobs for stage 2 (-p 2) then change ncall2 so the total number of calls is the same. The total number of calls is ncall2*itmx2*(number of jobs) 1250*5*800 = 5000000
 
-If you use a different number of jobs for stage 3 (-p 3) then change nubound so the total nubound*Njobs is the same
+If you use a different number of jobs for stage 3 (-p 3) then change nubound so the total nubound*(number of jobs) is the same. nubound*(number of jobs) = 5000*400 = 2000000 
 
 In Cards/params_card.dat set the following options
 
@@ -169,3 +169,14 @@ It is useful to run the ... script at this point to fix the produced lhe files i
 run reweighting with replacing "-p 5" which is sm weight with "-p 6" for ps and "-p 7" for mm:
 
               python ../batch_sub.py -p 5 -j 1000
+              
+# Other useful tools
+
+To combine together LHE files into 1 big file use mergeLheFiles
+Build:
+
+              g++ -Wall -o mergeLheFiles mergeLheFiles.cpp
+          
+Run:
+    
+              ./mergeLheFiles pwgevents-rwgt-0001.lhe pwgevents-rwgt-0002.lhe pwgevents-rwgt-0003.lhe ...
