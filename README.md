@@ -73,7 +73,6 @@ Hote the modifications to powheg.inputs with the exception of the MGcosa option 
 modify powheg.input as follows:
 
               numevts NEVENTS
-              iseed    SEED
 
 Make sure MGcosa is set to the value you want as this overwrites the value set in params_card.dat:
 
@@ -106,11 +105,11 @@ To ensure the integration grid etc is accurate enough the following parameters a
               itmx2     5    ! number of iterations for computing the integral and finding upper bound
               nubound 5000  ! number of bbarra calls to setup norm of upper bounding function
 
-If you use a different jobs for stage 1 (-p 1 in batch_sub.py script) or you use a different number of submissions with option -x (different from 5) you need to change ncall1 - the total number of calls should remain the same. The total number of calls used = ncall1*(number of -x itterations)*(number of jobs) 2500*5*400 = 5000000
+If you use a different jobs for stage 1 (-p 1 in batch_sub.py script) or you use a different number of submissions with option -x (different from 5) you need to change ncall1 - the total number of calls should remain the same. The total number of calls used = ncall1*(number of -x itterations)*(number of jobs) 2500 * 5 * 400 = 5000000
 
-If you use a different number of jobs for stage 2 (-p 2) then change ncall2 so the total number of calls is the same. The total number of calls is ncall2*itmx2*(number of jobs) 1250*5*800 = 5000000
+If you use a different number of jobs for stage 2 (-p 2) then change ncall2 so the total number of calls is the same. The total number of calls is ncall2*itmx2*(number of jobs) 1250 * 5 * 800 = 5000000
 
-If you use a different number of jobs for stage 3 (-p 3) then change nubound so the total nubound*(number of jobs) is the same. nubound*(number of jobs) = 5000*400 = 2000000 
+If you use a different number of jobs for stage 3 (-p 3) then change nubound so the total nubound*(number of jobs) is the same. nubound*(number of jobs) = 5000 * 400 = 2000000 
 
 In Cards/params_card.dat set the following options
 
@@ -179,4 +178,4 @@ Build:
           
 Run:
     
-              ./mergeLheFiles pwgevents-rwgt-0001.lhe pwgevents-rwgt-0002.lhe pwgevents-rwgt-0003.lhe ...
+              ./mergeLheFiles pwgevents-0001.lhe pwgevents-0002.lhe pwgevents-0003.lhe ...
