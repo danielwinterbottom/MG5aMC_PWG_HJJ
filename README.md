@@ -4,10 +4,12 @@ a repository with instructions and scripts for producing HJJ CP samples
 ## Download and setup madgraph and powheg-box
 
 Download madgraph and untar:
+
               wget http://madgraph.physics.illinois.edu/Downloads/MG5_aMC_v2.7.0.tar.gz
               tar -xvf MG5_aMC_v2.7.0.tar.gz
 
 setup a CMSSW environment:
+
               cmsrel CMSSW_10_2_19
               cd CMSSW_10_2_19/src/; cmsenv; cd ../../
 
