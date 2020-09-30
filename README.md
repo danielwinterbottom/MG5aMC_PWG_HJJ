@@ -87,6 +87,7 @@ for MM:
               MGcosa    -0.707107d0
               
 Also add the following to ensure reweighting will work properly later:
+
               lhrwgt_id 'nominal'
 
 
