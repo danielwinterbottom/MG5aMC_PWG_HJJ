@@ -73,7 +73,6 @@ Hote the modifications to powheg.inputs with the exception of the MGcosa option 
 modify powheg.input as follows:
 
               numevts NEVENTS
-              iseed    SEED
 
 Make sure MGcosa is set to the value you want as this overwrites the value set in params_card.dat:
 
