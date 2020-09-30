@@ -1,9 +1,9 @@
 # MG5aMC_PWG_HJJ
 a repository with instructions and scripts for producing HJJ CP samples
 
-# download and setup madgraph and powheg-box
+## download and setup madgraph and powheg-box
 
-# download madgraph and untar
+## download madgraph and untar
 wget http://madgraph.physics.illinois.edu/Downloads/MG5_aMC_v2.7.0.tar.gz
 tar -xvf MG5_aMC_v2.7.0.tar.gz
 
@@ -11,19 +11,17 @@ tar -xvf MG5_aMC_v2.7.0.tar.gz
 cmsrel CMSSW_10_2_19
 cd CMSSW_10_2_19/src/; cmsenv; cd ../../
 
-# check you can produce H+2j events in madgraph first
-cd MG5_aMC_v2_7_0/
+##interface with powheg box
 
-#interface with powheg box
 get plugin:
 bzr branch lp:~mg5amc-pwg-team/mg5amc-pwg/v0
 
-#copy MG5aMC_PWG to PLUGIN directory
+##copy MG5aMC_PWG to PLUGIN directory
 
 download powheg box
 svn checkout --username anonymous --password anonymous svn://powhegbox.mib.infn.it/trunk/POWHEG-BOX-V2
 
-# note you seem to need to run the bin/mg5_aMC once without the --mode=MG5aMC_PWG option to ensure everything gets installed properly
+## note you seem to need to run the bin/mg5_aMC once without the --mode=MG5aMC_PWG option to ensure everything gets installed properly
 
 python ./bin/mg5_aMC --mode=MG5aMC_PWG
 import model HC_NLO_X0_UFO-heft
