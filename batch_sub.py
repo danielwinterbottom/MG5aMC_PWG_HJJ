@@ -21,6 +21,7 @@ os.system('sed -i "s/^numevts.*/numevts '+args.numEvents+'/" powheg.input')
 
 
 if not 'parallelstage' in open(inputName).read() :
+    parstage_ = parstage
     if int(parstage)>4: parstage_ = '4'
     os.system("echo \'\n\nparallelstage "+parstage_+"\' >> "+inputName)
 
