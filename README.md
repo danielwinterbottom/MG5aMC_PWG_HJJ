@@ -60,7 +60,7 @@ replace all the files in the "directory_where_the_code_by_MG_is_created" with th
 
 make a copy of this input file for reference
 
-       cp powheg.input powheg.input-origional
+              cp powheg.input powheg.input-origional
 
 modify Cards/params_card.dat as desired then compile:
 
