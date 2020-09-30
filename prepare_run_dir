@@ -1,0 +1,15 @@
+#!/bin/bash
+
+DIR=$1
+
+mkdir -p $DIR
+
+make
+
+cd $DIR
+
+cp ../SubProcesses/MadLoopParams.dat ../pwhg_main ../powheg.input ../powheg.input-base ../pwgseeds.dat ./
+
+for f in `ls  ../SubProcesses/MadLoop5_resources/*` ; do
+    ln -sf $f ./
+done
