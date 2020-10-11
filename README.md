@@ -87,6 +87,7 @@ for MM:
               MGcosa    -0.707107d0
               
 Also add the following to ensure reweighting will work properly later:
+
               lhrwgt_id 'nominal'
 
 
@@ -167,7 +168,9 @@ It is useful to run the ... script at this point to fix the produced lhe files i
 
 run reweighting with replacing "-p 5" which is sm weight with "-p 6" for ps and "-p 7" for mm:
 
-              python ../batch_sub.py -p 5 -j 1000
+              python ../batch_sub.py -p 5 -j 1000 # add sm weight
+              python ../batch_sub.py -p 5 -j 1000 # add ps weight
+              python ../batch_sub.py -p 5 -j 1000 # add mm weight
               
 # Other useful tools
 
