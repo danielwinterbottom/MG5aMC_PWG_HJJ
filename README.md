@@ -172,6 +172,12 @@ run reweighting with replacing "-p 5" which is sm weight with "-p 6" for ps and 
               python ../batch_sub.py -p 5 -j 1000 # add ps weight
               python ../batch_sub.py -p 5 -j 1000 # add mm weight
               
+# (Optional) To increase stats for H+2j:
+
+Can use non-zero value for option bornsuppfact e.g use 
+              bornsuppfact 30
+in inputs file. This will increase number of events generated with born level pT> 30 GeV and the generator weight will be modified to ensure that the inclusive distributions look the same after applying the weights. This gives a much higher fraction of H+2j events but could lead to larger statistical fluctuations for the other jet multiplicities   
+              
 # Other useful tools
 
 To combine together LHE files into 1 big file use mergeLheFiles
