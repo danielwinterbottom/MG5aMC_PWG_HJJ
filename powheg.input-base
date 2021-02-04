@@ -95,6 +95,7 @@ withnegweights 1   ! (1 default) If 1 output negative weighted events.
 storeinfo_rwgt 1
 # compute_rwgt 1
 lhrwgt_id 'nominal'
+pdfreweight 1
 
 bornsuppfact 0  ! if minlo is active, set it to zero
 # use minlo
